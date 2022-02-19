@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:eProdaja.Mobile.ViewModels" xmlns:model="clr-namespace:eProdaja.Model;assembly=eProdaja.Model"
+             x:Class="eProdaja.Mobile.Views.PrometKorisnikaPage"
+             x:DataType="viewmodels:PrometKorisnikaViewModel"
+             >
+    <ContentPage.Content>
+        <StackLayout>
+            <Picker ItemsSource="{Binding KorisnikList}" SelectedItem="{Binding SelectedKorisnik}" />
+
+            <ListView ItemsSource="{Binding PretragaIspitList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="model:PretragaIspit">
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Korisnici}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                    <Label Text="{Binding VrsteProizvodum}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                    <Label Text="{Binding DatumOd}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                    <Label Text="{Binding DatumDo}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                    <Label Text="{Binding MinIznosPrometa}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                    <Label Text="{Binding IznosPrometa}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                    <Label Text="{Binding ProsječniPromet}" 
+                                           LineBreakMode="NoWrap"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13" />
+                                </StackLayout>
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
